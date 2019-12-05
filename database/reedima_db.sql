@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 29, 2019 at 10:03 AM
+-- Generation Time: Dec 05, 2019 at 08:56 AM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.3.11
 
@@ -21,6 +21,67 @@ SET time_zone = "+00:00";
 --
 -- Database: `reedima_db`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `articles_post`
+--
+
+CREATE TABLE `articles_post` (
+  `id` int(11) NOT NULL,
+  `title` varchar(200) NOT NULL,
+  `sub_title` varchar(200) NOT NULL,
+  `body` longtext NOT NULL,
+  `author` varchar(50) NOT NULL,
+  `date_created` datetime(6) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `articles_post`
+--
+
+INSERT INTO `articles_post` (`id`, `title`, `sub_title`, `body`, `author`, `date_created`) VALUES
+(1, 'Artificial Intelligence', 'argera', 'aga', 'argae', '2019-12-05 13:19:51.000000');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `articles_post_tags`
+--
+
+CREATE TABLE `articles_post_tags` (
+  `id` int(11) NOT NULL,
+  `post_id` int(11) NOT NULL,
+  `tag_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `articles_post_tags`
+--
+
+INSERT INTO `articles_post_tags` (`id`, `post_id`, `tag_id`) VALUES
+(1, 1, 2);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `articles_tag`
+--
+
+CREATE TABLE `articles_tag` (
+  `id` int(11) NOT NULL,
+  `word` varchar(35) NOT NULL,
+  `slug` varchar(250) NOT NULL,
+  `created_at` datetime(6) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `articles_tag`
+--
+
+INSERT INTO `articles_tag` (`id`, `word`, `slug`, `created_at`) VALUES
+(2, 'Science', 'uisybfhujl', '2019-12-05 07:50:38.000000');
 
 -- --------------------------------------------------------
 
@@ -86,7 +147,19 @@ INSERT INTO `auth_permission` (`id`, `name`, `content_type_id`, `codename`) VALU
 (21, 'Can add session', 6, 'add_session'),
 (22, 'Can change session', 6, 'change_session'),
 (23, 'Can delete session', 6, 'delete_session'),
-(24, 'Can view session', 6, 'view_session');
+(24, 'Can view session', 6, 'view_session'),
+(25, 'Can add posts', 7, 'add_posts'),
+(26, 'Can change posts', 7, 'change_posts'),
+(27, 'Can delete posts', 7, 'delete_posts'),
+(28, 'Can view posts', 7, 'view_posts'),
+(29, 'Can add post', 8, 'add_post'),
+(30, 'Can change post', 8, 'change_post'),
+(31, 'Can delete post', 8, 'delete_post'),
+(32, 'Can view post', 8, 'view_post'),
+(33, 'Can add tag', 9, 'add_tag'),
+(34, 'Can change tag', 9, 'change_tag'),
+(35, 'Can delete tag', 9, 'delete_tag'),
+(36, 'Can view tag', 9, 'view_tag');
 
 -- --------------------------------------------------------
 
@@ -156,6 +229,17 @@ CREATE TABLE `django_admin_log` (
   `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `django_admin_log`
+--
+
+INSERT INTO `django_admin_log` (`id`, `action_time`, `object_id`, `object_repr`, `action_flag`, `change_message`, `content_type_id`, `user_id`) VALUES
+(1, '2019-11-30 09:42:37.747926', '1', 'Posts object (1)', 1, '[{\"added\": {}}]', 7, 1),
+(2, '2019-12-02 05:41:53.525437', '1', 'Artificial Intelligence', 2, '[{\"changed\": {\"fields\": [\"tag\"]}}]', 7, 1),
+(3, '2019-12-05 07:52:47.513466', '2', 'Science', 1, '[{\"added\": {}}]', 9, 1),
+(4, '2019-12-05 07:52:52.917857', '1', 'sgfsefagea', 1, '[{\"added\": {}}]', 8, 1),
+(5, '2019-12-05 07:53:12.216537', '1', 'Artificial Intelligence', 2, '[{\"changed\": {\"fields\": [\"title\"]}}]', 8, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -174,10 +258,13 @@ CREATE TABLE `django_content_type` (
 
 INSERT INTO `django_content_type` (`id`, `app_label`, `model`) VALUES
 (1, 'admin', 'logentry'),
+(8, 'articles', 'post'),
+(9, 'articles', 'tag'),
 (3, 'auth', 'group'),
 (2, 'auth', 'permission'),
 (4, 'auth', 'user'),
 (5, 'contenttypes', 'contenttype'),
+(7, 'home', 'posts'),
 (6, 'sessions', 'session');
 
 -- --------------------------------------------------------
@@ -214,7 +301,9 @@ INSERT INTO `django_migrations` (`id`, `app`, `name`, `applied`) VALUES
 (14, 'auth', '0009_alter_user_last_name_max_length', '2019-11-29 08:19:13.636110'),
 (15, 'auth', '0010_alter_group_name_max_length', '2019-11-29 08:19:13.825611'),
 (16, 'auth', '0011_update_proxy_permissions', '2019-11-29 08:19:13.866516'),
-(17, 'sessions', '0001_initial', '2019-11-29 08:19:14.926176');
+(17, 'sessions', '0001_initial', '2019-11-29 08:19:14.926176'),
+(18, 'home', '0001_initial', '2019-11-30 09:35:47.775544'),
+(19, 'articles', '0001_initial', '2019-12-05 07:41:58.034480');
 
 -- --------------------------------------------------------
 
@@ -235,9 +324,52 @@ CREATE TABLE `django_session` (
 INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
 ('kgt1kbirplj6kulaczrt9k39v90n6o4a', 'NzgxN2U4NmM1ZWZkNzJmZmVjY2ZmZDk0NTgwNzdiNjVmYjJhNDFhMzp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiIzYTdjYTIyMDk2YWM1ZDVmOTdkYTIyNTNjYWRlMjU3YzVmMDQ4ZmY1In0=', '2019-12-13 08:25:29.408122');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `home_posts`
+--
+
+CREATE TABLE `home_posts` (
+  `id` int(11) NOT NULL,
+  `title` varchar(200) NOT NULL,
+  `body` longtext NOT NULL,
+  `created_at` datetime(6) NOT NULL,
+  `author` varchar(200) NOT NULL,
+  `images` varchar(100) NOT NULL,
+  `tag` varchar(2) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `home_posts`
+--
+
+INSERT INTO `home_posts` (`id`, `title`, `body`, `created_at`, `author`, `images`, `tag`) VALUES
+(1, 'Artificial Intelligence', 'jhhbvi hbwep ib', '2019-11-30 15:10:46.000000', 'Shan', '', 'te');
+
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `articles_post`
+--
+ALTER TABLE `articles_post`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `articles_post_tags`
+--
+ALTER TABLE `articles_post_tags`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `articles_post_tags_post_id_tag_id_08c62309_uniq` (`post_id`,`tag_id`),
+  ADD KEY `articles_post_tags_tag_id_aace605a_fk_articles_tag_id` (`tag_id`);
+
+--
+-- Indexes for table `articles_tag`
+--
+ALTER TABLE `articles_tag`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `auth_group`
@@ -313,8 +445,32 @@ ALTER TABLE `django_session`
   ADD KEY `django_session_expire_date_a5c62663` (`expire_date`);
 
 --
+-- Indexes for table `home_posts`
+--
+ALTER TABLE `home_posts`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `articles_post`
+--
+ALTER TABLE `articles_post`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `articles_post_tags`
+--
+ALTER TABLE `articles_post_tags`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `articles_tag`
+--
+ALTER TABLE `articles_tag`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `auth_group`
@@ -332,7 +488,7 @@ ALTER TABLE `auth_group_permissions`
 -- AUTO_INCREMENT for table `auth_permission`
 --
 ALTER TABLE `auth_permission`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT for table `auth_user`
@@ -356,23 +512,36 @@ ALTER TABLE `auth_user_user_permissions`
 -- AUTO_INCREMENT for table `django_admin_log`
 --
 ALTER TABLE `django_admin_log`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `django_content_type`
 --
 ALTER TABLE `django_content_type`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `django_migrations`
 --
 ALTER TABLE `django_migrations`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+
+--
+-- AUTO_INCREMENT for table `home_posts`
+--
+ALTER TABLE `home_posts`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `articles_post_tags`
+--
+ALTER TABLE `articles_post_tags`
+  ADD CONSTRAINT `articles_post_tags_post_id_0101715d_fk_articles_post_id` FOREIGN KEY (`post_id`) REFERENCES `articles_post` (`id`),
+  ADD CONSTRAINT `articles_post_tags_tag_id_aace605a_fk_articles_tag_id` FOREIGN KEY (`tag_id`) REFERENCES `articles_tag` (`id`);
 
 --
 -- Constraints for table `auth_group_permissions`
