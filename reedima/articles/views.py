@@ -4,8 +4,8 @@ from .models import Tag,Post
 # Create your views here.
 def article(request):
 
-    posts=Post.Object.all()
-    Tags=Tag.Object.all()
+    posts=Post.objects.all()
+    Tags=Tag.objects.all()
 
     context={
         'posts':posts,
