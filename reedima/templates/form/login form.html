@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>log-in form</title>
+<link href = "login.css" type = "text/css" rel = "stylesheet">
+</head>
+<body>
+<section id = "login_form">
+  <div class = "login_form_img">
+    <div class = "img_wrapper"></div>
+  </div>
+  <div class = "login_form">
+    <div class = "wrapper">
+      <div class = "form_title">
+        <h1>Sign In</h1>
+        <div class = "form_description">
+          <h4>Reading make people perfect</h4>
+          <p>Reedima can give you information relevent to your interesting and keep you upto-date in changing tech world.</p>
+        </div>
+      </div>
+      <div class = "form_inner">
+        <form id = "form_content">
+          <div id = "username">
+            <input class = "form_inputs username" type = "text" placeholder = "Username">
+          </div>
+          <div id = "password">
+            <input class = "form_inputs password" type = "password" placeholder = "Password">
+          </div>
+          <div id = "submit"> <span class = "form_submit submit">sign in</span> </div>
+        </form>
+        <form id = "for_newusers">
+          <div id = "firstname">
+            <input class = "form_inputs firstname" type = "text" placeholder = "Firstname">
+          </div>
+          <div id = "lastname">
+            <input class = "form_inputs lastname" type = "text" placeholder = "Lastname">
+          </div>
+          <div id = "birthday"> <span class = "input_description">DATE OF BIRTH</span> <span class = "birthday">
+            <div id = "day" data-id = "DD">
+              <input class = "form_inputs day" type = "text" placeholder = "DD">
+            </div>
+            <div id = "month" data-id = "MM">
+              <input class = "form_inputs month" type = "text" placeholder = "MM">
+            </div>
+            <div id = "year" data-id = "YYYY">
+              <input class = "form_inputs year" type = "text" placeholder  = "YYYY">
+            </div>
+            </span> </div>
+          <div id = "gender"> <span class = "input_description">GENDER</span> <span class = "gender">
+            <div id = "male">
+              <input class = "form_inputs gender" type = "radio">
+              <span>Male</span> </div>
+            <div id = "female">
+              <input class = "form_inputs gender" type = "radio">
+              <span>Female</span> </div>
+            </span> </div>
+          <div id = "email">
+            <input class = "form_inputs email" type = "email" placeholder = "Email">
+          </div>
+          <div id = "phone">
+            <input class = "form_inputs phone" type = "tel" placeholder = "Phone">
+          </div>
+          <div id = "job">
+            <input class = "form_inputs job" type = "text" placeholder = "Job">
+          </div>
+            <span class = "input_description">SET YOUR ACCOUNT</span>
+          <div id = "userId">
+            <input class = "form_inputs userId" type = "text" placeholder = "Username">
+          </div>
+          <div id = "userpassword">
+            <input class = "form_inputs userpassword" type = "password" placeholder = "Enter Password">
+          </div>
+          <!--<div id = "cheakPassword">
+            <input class = "form_inputs cheakPassword" type = "password" placeholder = "Re-enter Password">
+          </div>-->
+          <div id = "register"> <span class = "form_submit submit">sign up</span> </div>
+        </form>
+        <div class = "notMember">Not member yet ?<span id = "newuser">register now</span></div>
+        <div class = "member">I'm alredy registered.<span id = "user">log in</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+<script src = "login.js" type = "text/javascript"></script>
+</body>
+</html>
