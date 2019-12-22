@@ -106,7 +106,9 @@
     }
 
     // give form to new users
-    function ToggleForm(hideLink, Hideform, defaultLink, Activeform, activeBtn, hideBtn) {
+    function ToggleForm(title1, title2, hideLink, Hideform, defaultLink, Activeform, activeBtn, hideBtn) {
+        this.activeTitle = document.getElementById('title1');
+        this.hideTitle = document.getElementById('title2');
         this.active = document.getElementById(defaultLink);
         this.activeForm = document.getElementById(Activeform);
         this.activeBtn = document.getElementById(activeBtn);
@@ -119,6 +121,8 @@
     ToggleForm.prototype.hiding = 'display: none;';
     ToggleForm.prototype.displaying = 'display: block';
     ToggleForm.prototype.showHide = function () {
+            this.activeTitle.style.cssText = this.hiding;
+            this.hideTitle.style.cssText = this.displaying;
             this.active.parentElement.style.cssText = this.hiding;
             this.activeBtn.style.cssText = this.hiding;
             this.hide.parentElement.style.cssText = this.displaying;
@@ -141,8 +145,8 @@
         }*/
 
     // testing
-    let form_1 = new ToggleForm( 'user', 'for_newusers', 'newuser', 'form_content', 'submit', 'register');
-    let form_2 = new ToggleForm('newuser', 'form_content', 'user', 'for_newusers', 'register', 'submit');
+    let form_1 = new ToggleForm( 'singin', 'singup','user', 'for_newusers', 'newuser', 'form_content', 'submit', 'register');
+    let form_2 = new ToggleForm('singup', 'singin', 'newuser', 'form_content', 'user', 'for_newusers', 'register', 'submit');
 
     document.getElementById('submit').addEventListener('click', function () {
         let dtl = {
