@@ -144,6 +144,9 @@ h1, h2, h3, h4, h5, h6 {
 .form_title {
     padding: 0px 30px;
 }
+.signup, .signup_msg {
+    display: none;
+}
 .input_description {
     margin: 20px 0px;
 }
