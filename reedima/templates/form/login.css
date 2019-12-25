@@ -1,0 +1,155 @@
+@charset "utf-8";
+@font-face {
+    font-family: "Alata";
+    src: url("Alata/Alata-Regular.ttf");
+}
+@font-face {
+    font-family: "Alatsi";
+    src: url("Alata/Alata-Regular.ttf");
+}
+body {
+    padding: 0px;
+    margin: 0px;
+    border: none;
+    font-family: 'Alata', sans-serif;
+}
+input {
+    position: relative;
+    height: 56px;
+    width: 480px;
+    box-sizing: border-box;
+    padding: 0px 40px;
+    margin-top: 24px;
+    border: 1.5px solid #ABABAB;
+    border-radius: 5px;
+    color: hsla(0,0%,46%,1.00);
+    font-size: 16px;
+}
+h1, h2, h3, h4, h5, h6 {
+    margin: 0px;
+}
+::placeholder {
+ color: #727272;
+ font-size: 16px;
+ font-weight: 700;
+}
+#login_form {
+    display: inline;
+    height: auto;
+    width: 100%;
+}
+#for_newusers > div, #form_content > div {
+    padding-bottom: 30px;
+    font-family: 'Alatsi', sans-serif;
+}
+#for_newusers > div:first-child, #form_content > div:first-child {
+    padding-top: 40px;
+}
+#for_newusers, #register {
+    display: none;
+}
+#newuser, #user {
+    padding-left: 10px;
+    color: #2A63C8;
+    cursor: pointer;
+    text-decoration: underline;
+}
+#phone input {
+    width: 250px;
+    left: -23.8%;
+}
+#birthday > span, #gender > span, .input_description {
+    display: flex;
+    width: 480px;
+}
+#day, #month, #year {
+    margin-right: 20px;
+}
+#day input, #month input, #year input {
+    width: 150px;
+    padding: 0px 20px;
+    text-align: center;
+}
+#day input, #month input {
+    width: 72px;
+    padding: 0px 5px;
+}
+#male, #female {
+    margin-right: 52px;
+}
+#male span, #female span {
+    margin-left: 18px;
+    display: inline-block;
+    position: relative;
+    top: -3px;
+}
+#female input, #male input {
+    width: 18px;
+    height: 18px;
+}
+.login_form_img {
+    background-image: url("file:///C:/Users/ashen/Pictures/Saved%20Pictures/the_weeknd-01dr.jpg");
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: local;
+    width: 30%;
+    position: fixed;
+    z-index: 1;
+}
+.login_form {
+    width: 70%;
+    position: absolute;
+    right: 0%;
+    top: 16%;
+}
+.form_title h1 {
+    font-size: 52px;
+}
+#form_content > div > div, #for_newusers > div > div, #birthday > span > div > div {
+    position: absolute;
+    color: #1C5DE1;
+    font-size: 14px;
+    font-weight: 700;
+}
+.wrapper {
+    width: 50%;
+    margin: 0px auto;
+    padding: 20px 0px;
+    text-align: center;
+}
+.form_inner {
+    padding-left: 20px;
+    display: inline-block;
+}
+.form_submit {
+    display: block;
+    width: fit-content;
+    margin: 10px auto;
+    padding: 20px 40px;
+    border: none;
+    border-radius: 4px;
+    background: linear-gradient(45deg, #e21e68, #3489bf);
+    color: #ffffff;
+    font-size: 18px;
+    transition: ease-in-out 200ms;
+}
+.form_submit:hover {
+    box-shadow: 1px 1px 16px 0px rgba(0, 0, 0, 0.5);
+    transition: ease-in-out 200ms;
+}
+.form_description {
+    margin-top: 40px;
+}
+.form_title {
+    padding: 0px 30px;
+}
+#signup, #signup_msg {
+    display: none;
+}
+.input_description {
+    margin: 20px 0px;
+}
+.member {
+    display: none;
+}
