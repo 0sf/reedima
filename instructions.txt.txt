@@ -1,0 +1,22 @@
+1. install python 3.8.0
+
+2. install virtualenvwrapper 
+      run command on cmd : pip install virtalenvwrapper
+
+3. activate py1 virtual environment 
+      cd into Reedima
+      run command on cmd : py1\Scripts\activate
+
+4. install django
+      run command on cmd : pip install django (u can use this before activating the virtual environment to install globally)
+
+5. open xampp and start mysql and apache server
+
+6. change ur phpmyadmin password to reedima9797 (remember to change the config file in xampp)or change the password to ur phpmyadmin pswd in settings.py in (Reedima\reedima\reedima\setting.py) line 85
+
+7. create a database name reedima_db in mysql and import database file in (Reedima\database\reedima_db.sql)
+
+8. cd into (Reedima\reedima) 
+      run command on cmd: python manage.py runserver
+
+ thses steps should up the reedima project

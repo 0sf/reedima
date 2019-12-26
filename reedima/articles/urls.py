@@ -18,5 +18,6 @@ from django.urls import path,include
 from . import views
 
 urlpatterns = [
-    path('',views.article,name="articles")
+    path('',views.article,name="articles"),
+    path('form',views.post_create,name="articles")
 ]
