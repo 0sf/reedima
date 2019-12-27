@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 ]
 
-CRISPY_TEMPLATE_PACK = 'bootstrap4'
+CRISPY_TEMPLATE_PACK = 'bootstrap4' # this is a api to create bootstrap form template code  {% load crispy_forms_tags %} , {{ form|crispy }}, {% csrf_token %} 
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -80,9 +80,9 @@ WSGI_APPLICATION = 'reedima.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'reedima_db',
+        'NAME': 'reedima_db', # this is the database name django looks for in mysql which i saved in Reedima\database (import this file to ur mysql)
         'USER': 'root',
-        'PASSWORD': 'reedima9797',
+        'PASSWORD': 'reedima9797', # this is the password for my mysql phpmyadmin account 
         'HOST': 'localhost',
         'PORT':'',
     }
@@ -126,3 +126,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# all the media files uploaded are stored in here 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'media') # this is looking at F:\Projects\Reedima\media

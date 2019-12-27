@@ -14,10 +14,11 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path,include
+from django.urls import path,include,re_path
 from . import views
 
 urlpatterns = [
-    path('',views.article,name="articles"),
-    path('form',views.post_create,name="articles")
+    path('',views.index,name="home"),
+    re_path(r'^post/(?P<id>\d+)/$',views.article,name="article"), # <r'^post/(?P<id>\d+)/$'> this part renders the specified article using the article id 
+    path('form',views.post_create,name="form")
 ]
