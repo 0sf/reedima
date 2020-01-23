@@ -34,7 +34,9 @@ If you want to install globally run this command before activating the virtual e
 
 ## 7. create a database name `reedima_db` in mysql and import database file in `Reedima\database\reedima_db.sql`
 
-## 8. cd into Reedima\reedima
+## 8. add the security key in the setting.py in (Reedima\reedima\reedima)
+
+## 9. cd into Reedima\reedima
 
 ```batch
 python manage.py runserver
