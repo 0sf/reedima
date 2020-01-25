@@ -4,7 +4,7 @@
 
 (Note: run below commands in cmd)
 
-## 1. Install python 3.8.0
+## 1. Install python
 
 ## 2. Install virtualenvwrapper
 
@@ -12,22 +12,23 @@
 pip install virtalenvwrapper
 ```
 
-## 3.activate virtual environment
+## 3.create a virtual environment
+
+```batch
+virtualenv virtualenvName
+```
+## 4.activate the virtual environment
+
+```batch
+virtualenvName\Scripts\activate
+```
+## 4. Install dependencies 
 
 (cd into the Reedima\reedima\ directory using cmd)
 
 ```batch
-py1\Scripts\activate
+pip install -r requirement.txt
 ```
-
-## 4. install django
-
-```batch
-pip install django
-```
-
-If you want to install globally run this command before activating the virtual environment.
-
 ## 5. open xampp and start mysql and apache server
 
 ## 6. change your phpmyadmin password to `reedima9797`
