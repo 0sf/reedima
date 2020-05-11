@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = ''
+SECRET_KEY = 'i)s(y@7vj#e&^ap90w^e6$_1(ssxcec+oi@6xwzx7x*c-snzdy'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'users',
     'articles',
     'crispy_forms',
     'django.contrib.admin',
@@ -88,7 +89,7 @@ DATABASES = {
     }
 }
 
-
+AUTH_USER_MODEL='users.Profile'
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
 
