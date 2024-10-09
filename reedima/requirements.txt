@@ -1,5 +1,5 @@
 asgiref==3.2.3
-Django==3.2.24
+Django==4.2.16
 django-crispy-forms==1.8.1
 mysqlclient==1.4.6
 pbr==5.4.4
